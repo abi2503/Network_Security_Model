@@ -15,9 +15,9 @@ import json
 ca = certifi.where()#This is used to get the path to the trusted certificates
 load_dotenv()
 
-uri = os.getenv("MONGO_DB_URI")
+MONGO_DB_URL = os.getenv("MONGO_DB_URL")
 
-class NetworkSecurityDataExtractor:#This class is used to extract data from the csv file and convert it to json format
+class NetworkDataExtract:#This class is used to extract data from the csv file and convert it to json format
     def __init__(self):
         try:
             pass
@@ -30,7 +30,35 @@ class NetworkSecurityDataExtractor:#This class is used to extract data from the 
             df.reset_index(drop=True,inplace=True)
             records=list(json.loads(df.T.to_json()).values())#This is used to convert the dataframe to list of json arraysjsons
             return records
-        except:
+        except Exception as e:
             raise NetworkSecurityException(e,sys)
+        
+    def insert_data_to_mongodb(self,records,database,collection):
+        try:
+            self.records=records
+            self.database=database
+            self.collection=collection
+            self.mongo_client=pymongo.MongoClient(MONGO_DB_URL)
+            self.database=self.mongo_client[database]
+            self.collection=self.database[collection]
+            self.collection.insert_many(records)
+            return len(self.records)
+        except Exception as e:
+            raise NetworkSecurityException(e,sys)
+        
+
+if __name__=="__main__":
+    FILE_PATH="Network_Data/phisingData.csv"
+    DATABASE="Network_Security_Data_Repository"
+    COLLECTION="phishing_data"
+    networkobj=NetworkDataExtract()
+    records=networkobj.csv_to_json(csv_file_path=FILE_PATH)
+    number_of_records=networkobj.insert_data_to_mongodb(records,DATABASE,COLLECTION)
+
+
+    print(records)
+    print(number_of_records)
+    
+        
         
         
