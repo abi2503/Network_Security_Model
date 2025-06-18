@@ -1,0 +1,33 @@
+[ 2025-06-18 17:38:30,601 ] 16 root - INFO - Data ingestion started
+[ 2025-06-18 17:38:30,601 ] 53 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-06-18 17:38:32,200 ] 58 root - INFO - Got the data from mongodb
+[ 2025-06-18 17:38:32,200 ] 63 root - INFO - Exporting collection to Artifacts/06_18_2025_17_38_30/data_ingestion/feature_store
+[ 2025-06-18 17:38:32,230 ] 68 root - INFO - Exported collection data as csv file
+[ 2025-06-18 17:38:32,230 ] 76 root - INFO - Exporting train dataset to file: [Artifacts/06_18_2025_17_38_30/data_ingestion/ingested/train.csv]
+[ 2025-06-18 17:38:32,253 ] 78 root - INFO - Exporting test dataset to file: [Artifacts/06_18_2025_17_38_30/data_ingestion/ingested/test.csv]
+[ 2025-06-18 17:38:32,258 ] 80 root - INFO - Exported train and test dataset
+[ 2025-06-18 17:38:32,258 ] 86 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='Artifacts/06_18_2025_17_38_30/data_ingestion/ingested/train.csv', test_file_path='Artifacts/06_18_2025_17_38_30/data_ingestion/ingested/test.csv')
+[ 2025-06-18 17:38:32,258 ] 18 root - INFO - Data ingestion completed
+[ 2025-06-18 17:38:32,258 ] 29 root - ERROR - Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_validation.py] line number [16] error message [Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/utils/main_utils/utils.py] line number [13] error message [[Errno 2] No such file or directory: '/Users/abhisheksuresh/Documents/networksecurity/networksecurity/constant/data_schema/schema.yaml']]
+Traceback (most recent call last):
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/utils/main_utils/utils.py", line 13, in read_yaml_file
+    with open(file_path,"rb") as yaml_file:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/abhisheksuresh/Documents/networksecurity/networksecurity/constant/data_schema/schema.yaml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_validation.py", line 16, in __init__
+    self.schema_config=read_yaml_file(SCHEMA_FILE_PATH)
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/utils/main_utils/utils.py", line 16, in read_yaml_file
+    raise NetworkSecurityException(e,sys)
+networksecurity.exception.exception.NetworkSecurityException: Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/utils/main_utils/utils.py] line number [13] error message [[Errno 2] No such file or directory: '/Users/abhisheksuresh/Documents/networksecurity/networksecurity/constant/data_schema/schema.yaml']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abhisheksuresh/Documents/networksecurity/main.py", line 22, in <module>
+    data_validation=DataValidation(data_validation_config=data_validation_config,data_ingestion_artifact=data_ingestion_artifact)
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_validation.py", line 18, in __init__
+    raise NetworkSecurityException(e,sys)
+networksecurity.exception.exception.NetworkSecurityException: Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_validation.py] line number [16] error message [Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/utils/main_utils/utils.py] line number [13] error message [[Errno 2] No such file or directory: '/Users/abhisheksuresh/Documents/networksecurity/networksecurity/constant/data_schema/schema.yaml']]

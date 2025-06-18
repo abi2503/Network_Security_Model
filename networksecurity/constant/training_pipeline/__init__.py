@@ -13,7 +13,7 @@ ARTIFACT_DIR:str="Artifacts"
 FILE_NAME:str="phisingData.csv"
 TRAIN_FILE_NAME:str="train.csv"
 TEST_FILE_NAME:str="test.csv"
-SCHEMA_FILE_PATH:str=os.path.join("data_schema","schema.yaml")
+SCHEMA_FILE_PATH:str=os.path.join("networksecurity","data_schema","schema.yaml")
 
 """
 Defining common constant variables for training pipeline

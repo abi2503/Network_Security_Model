@@ -13,6 +13,7 @@ dependencies = [
     "certifi",
     "scikit-learn",
     "scipy",
+    "PyYAML",
 ]
 requires-python = ">=3.8"
 

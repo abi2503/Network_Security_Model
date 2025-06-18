@@ -1,0 +1,16 @@
+[ 2025-06-18 17:40:08,055 ] 16 root - INFO - Data ingestion started
+[ 2025-06-18 17:40:08,055 ] 53 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-06-18 17:40:09,137 ] 58 root - INFO - Got the data from mongodb
+[ 2025-06-18 17:40:09,137 ] 63 root - INFO - Exporting collection to Artifacts/06_18_2025_17_40_07/data_ingestion/feature_store
+[ 2025-06-18 17:40:09,167 ] 68 root - INFO - Exported collection data as csv file
+[ 2025-06-18 17:40:09,167 ] 76 root - INFO - Exporting train dataset to file: [Artifacts/06_18_2025_17_40_07/data_ingestion/ingested/train.csv]
+[ 2025-06-18 17:40:09,190 ] 78 root - INFO - Exporting test dataset to file: [Artifacts/06_18_2025_17_40_07/data_ingestion/ingested/test.csv]
+[ 2025-06-18 17:40:09,196 ] 80 root - INFO - Exported train and test dataset
+[ 2025-06-18 17:40:09,196 ] 86 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='Artifacts/06_18_2025_17_40_07/data_ingestion/ingested/train.csv', test_file_path='Artifacts/06_18_2025_17_40_07/data_ingestion/ingested/test.csv')
+[ 2025-06-18 17:40:09,196 ] 18 root - INFO - Data ingestion completed
+[ 2025-06-18 17:40:09,198 ] 23 root - INFO - Data validation started
+[ 2025-06-18 17:40:09,206 ] 30 root - INFO - Number of columns: 31
+[ 2025-06-18 17:40:09,206 ] 31 root - INFO - Dataframe has 31 columns
+[ 2025-06-18 17:40:09,206 ] 30 root - INFO - Number of columns: 31
+[ 2025-06-18 17:40:09,206 ] 31 root - INFO - Dataframe has 31 columns
+[ 2025-06-18 17:40:09,269 ] 25 root - INFO - Data validation completed
