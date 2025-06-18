@@ -1,6 +1,6 @@
 from networksecurity.exception.exception import NetworkSecurityException
-from networksecurity.logger import logging
-from networksecurity.components.artifact_entity import DataIngestionArtifact
+from networksecurity.logging import logging
+from networksecurity.entity.artifact_entity import DataIngestionArtifact
 import pandas as pd
 import numpy as np
 
@@ -48,21 +48,45 @@ class DataIngestion:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
   
-    def initiate_data_ingestion(self):
-        """ 
-        Initiate data ingestion process by reading data from mongodb and saving it in the feature store folder
-        """
+    def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
-            dataframe=self.export_collection_as_dataframe()
-            dataframe=self.export_data_into_feature_store(dataframe)
-            dataframe=self.split_data_as_train_test(dataframe)
-            data_ingestion_artifact=DataIngestionArtifact(
-                trained_file_path=self.data_ingestion_config.training_file_path,
-                test_file_path=self.data_ingestion_config.testing_file_path
+            logging.info("Entered initiate_data_ingestion method of Data_Ingestion class")
+            dataframe = self.export_collection_as_dataframe(
+                collection_name=self.data_ingestion_config.collection_name,
+                database_name=self.data_ingestion_config.database_name
             )
+            logging.info("Got the data from mongodb")
+            
+            # Create feature store directory
+            feature_store_file_path = self.data_ingestion_config.feature_store_file_path
+            os.makedirs(os.path.dirname(feature_store_file_path), exist_ok=True)
+            logging.info(f"Exporting collection to {feature_store_file_path}")
+            dataframe.to_csv(feature_store_file_path, index=False, header=True)
+            
+            # Create train-test split
+            train_df, test_df = train_test_split(dataframe, test_size=self.data_ingestion_config.train_test_split_ratio)
+            logging.info("Exported collection data as csv file")
+            
+            # Create directories for train and test files
+            train_file_path = self.data_ingestion_config.training_file_path
+            test_file_path = self.data_ingestion_config.test_file_path
+            os.makedirs(os.path.dirname(train_file_path), exist_ok=True)
+            os.makedirs(os.path.dirname(test_file_path), exist_ok=True)
+            
+            logging.info(f"Exporting train dataset to file: [{train_file_path}]")
+            train_df.to_csv(train_file_path, index=False, header=True)
+            logging.info(f"Exporting test dataset to file: [{test_file_path}]")
+            test_df.to_csv(test_file_path, index=False, header=True)
+            logging.info("Exported train and test dataset")
+            
+            data_ingestion_artifact = DataIngestionArtifact(
+                trained_file_path=train_file_path,
+                test_file_path=test_file_path
+            )
+            logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
             return data_ingestion_artifact
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise NetworkSecurityException(e, sys)
         
 
     def export_data_into_feature_store(self):

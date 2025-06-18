@@ -1,0 +1,16 @@
+[ 2025-06-13 13:45:15,989 ] 162 numexpr.utils - INFO - NumExpr defaulting to 11 threads.
+[ 2025-06-13 13:45:18,492 ] 12 root - INFO - Data ingestion started
+[ 2025-06-13 13:45:18,492 ] 17 root - ERROR - Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_ingestion.py] line number [56] error message [DataIngestion.export_collection_as_dataframe() missing 2 required positional arguments: 'collection_name' and 'database_name']
+Traceback (most recent call last):
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_ingestion.py", line 56, in initiate_data_ingestion
+    dataframe=self.export_collection_as_dataframe()
+TypeError: DataIngestion.export_collection_as_dataframe() missing 2 required positional arguments: 'collection_name' and 'database_name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/abhisheksuresh/Documents/networksecurity/main.py", line 13, in <module>
+    data_ingestion_artifact=data_ingestion.initiate_data_ingestion()
+  File "/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_ingestion.py", line 65, in initiate_data_ingestion
+    raise NetworkSecurityException(e,sys)
+networksecurity.exception.exception.NetworkSecurityException: Error occured in python script name [/Users/abhisheksuresh/Documents/networksecurity/networksecurity/components/data_ingestion.py] line number [56] error message [DataIngestion.export_collection_as_dataframe() missing 2 required positional arguments: 'collection_name' and 'database_name']

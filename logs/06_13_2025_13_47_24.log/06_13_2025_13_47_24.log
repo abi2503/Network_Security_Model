@@ -1,0 +1,8 @@
+[ 2025-06-13 13:47:24,453 ] 162 numexpr.utils - INFO - NumExpr defaulting to 11 threads.
+[ 2025-06-13 13:47:25,325 ] 53 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-06-13 13:47:26,463 ] 58 root - INFO - Got the data from mongodb
+[ 2025-06-13 13:47:26,463 ] 63 root - INFO - Exporting collection to Artifacts/06_13_2025_13_47_25/data_ingestion/feature_store
+[ 2025-06-13 13:47:26,502 ] 68 root - INFO - Exported collection data as csv file
+[ 2025-06-13 13:47:26,502 ] 76 root - INFO - Exporting train dataset to file: [Artifacts/06_13_2025_13_47_25/data_ingestion/ingested/train.csv]
+[ 2025-06-13 13:47:26,526 ] 78 root - INFO - Exporting test dataset to file: [Artifacts/06_13_2025_13_47_25/data_ingestion/ingested/test.csv]
+[ 2025-06-13 13:47:26,532 ] 80 root - INFO - Exported train and test dataset

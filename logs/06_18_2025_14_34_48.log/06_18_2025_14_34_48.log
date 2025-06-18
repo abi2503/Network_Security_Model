@@ -1,0 +1,9 @@
+[ 2025-06-18 14:35:02,497 ] 15 root - INFO - Data ingestion started
+[ 2025-06-18 14:35:02,497 ] 53 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-06-18 14:35:03,525 ] 58 root - INFO - Got the data from mongodb
+[ 2025-06-18 14:35:03,525 ] 63 root - INFO - Exporting collection to Artifacts/06_18_2025_14_35_02/data_ingestion/feature_store
+[ 2025-06-18 14:35:03,558 ] 68 root - INFO - Exported collection data as csv file
+[ 2025-06-18 14:35:03,558 ] 76 root - INFO - Exporting train dataset to file: [Artifacts/06_18_2025_14_35_02/data_ingestion/ingested/train.csv]
+[ 2025-06-18 14:35:03,580 ] 78 root - INFO - Exporting test dataset to file: [Artifacts/06_18_2025_14_35_02/data_ingestion/ingested/test.csv]
+[ 2025-06-18 14:35:03,586 ] 80 root - INFO - Exported train and test dataset
+[ 2025-06-18 14:35:03,586 ] 86 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='Artifacts/06_18_2025_14_35_02/data_ingestion/ingested/train.csv', test_file_path='Artifacts/06_18_2025_14_35_02/data_ingestion/ingested/test.csv')
