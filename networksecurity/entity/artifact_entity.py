@@ -1,5 +1,8 @@
 from dataclasses import dataclass
-
+"""
+The dataclass is a decorator that automatically adds special methods to the class, such as __init__(), __repr__(), and __eq__()
+The dataclass is used to create a class that is used to store the data of the artifact.
+"""
 @dataclass
 class DataIngestionArtifact:
     trained_file_path:str

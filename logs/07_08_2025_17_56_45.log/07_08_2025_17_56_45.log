@@ -1,0 +1,25 @@
+[ 2025-07-08 17:56:46,833 ] 18 root - INFO - Data ingestion started
+[ 2025-07-08 17:56:46,833 ] 53 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2025-07-08 17:56:47,892 ] 58 root - INFO - Got the data from mongodb
+[ 2025-07-08 17:56:47,892 ] 63 root - INFO - Exporting collection to Artifacts/07_08_2025_17_56_46/data_ingestion/feature_store
+[ 2025-07-08 17:56:47,926 ] 68 root - INFO - Exported collection data as csv file
+[ 2025-07-08 17:56:47,926 ] 76 root - INFO - Exporting train dataset to file: [Artifacts/07_08_2025_17_56_46/data_ingestion/ingested/train.csv]
+[ 2025-07-08 17:56:47,951 ] 78 root - INFO - Exporting test dataset to file: [Artifacts/07_08_2025_17_56_46/data_ingestion/ingested/test.csv]
+[ 2025-07-08 17:56:47,958 ] 80 root - INFO - Exported train and test dataset
+[ 2025-07-08 17:56:47,958 ] 86 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='Artifacts/07_08_2025_17_56_46/data_ingestion/ingested/train.csv', test_file_path='Artifacts/07_08_2025_17_56_46/data_ingestion/ingested/test.csv')
+[ 2025-07-08 17:56:47,958 ] 20 root - INFO - Data ingestion completed
+[ 2025-07-08 17:56:47,961 ] 25 root - INFO - Data validation started
+[ 2025-07-08 17:56:47,971 ] 30 root - INFO - Number of columns: 31
+[ 2025-07-08 17:56:47,971 ] 31 root - INFO - Dataframe has 31 columns
+[ 2025-07-08 17:56:47,971 ] 30 root - INFO - Number of columns: 31
+[ 2025-07-08 17:56:47,971 ] 31 root - INFO - Dataframe has 31 columns
+[ 2025-07-08 17:56:48,054 ] 27 root - INFO - Data validation completed
+[ 2025-07-08 17:56:48,054 ] 32 root - INFO - Data transformation started
+[ 2025-07-08 17:56:48,054 ] 28 root - INFO - Entered the initiate_data_transformation method of DataTransformation class
+[ 2025-07-08 17:56:48,063 ] 40 root - INFO - Applying preprocessing object on training and testing datasets
+[ 2025-07-08 17:56:48,063 ] 67 root - INFO - Entered the get_data_transformer_object method of DataTransformation class
+[ 2025-07-08 17:56:48,063 ] 70 root - INFO - Initiated KNNImputer with parameters: {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2025-07-08 17:56:48,068 ] 56 root - INFO - Entered the save_object method of MainUtils class
+[ 2025-07-08 17:56:48,073 ] 60 root - INFO - Exited the save_object method of MainUtils class
+[ 2025-07-08 17:56:48,073 ] 60 root - INFO - Data transformation artifact: DataTransformationArtifact(transformed_object_file_path='Artifacts/07_08_2025_17_56_46/data_transformation/transformed_object/preprocessor.pkl', transformed_train_file_path='Artifacts/07_08_2025_17_56_46/data_transformation/transformed/train/train.npy', transformed_test_file_path='Artifacts/07_08_2025_17_56_46/data_transformation/transformed/test/test.npy')
+[ 2025-07-08 17:56:48,073 ] 34 root - INFO - Data transformation completed
